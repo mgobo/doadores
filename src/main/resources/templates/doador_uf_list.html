@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS --> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>	
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<h1>
+			Citel <small>Doadores por Estado</small>
+		</h1>
+		<div class="jumbotron">
+			<ul class="nav nav-pills">
+				<li role="presentation"><a href="index.html" th:href="@{/ui-doadores/all}">Doadores</a></li>
+				<li role="presentation" class="active"><a href="doador_uf_list.html" th:href="@{/ui-doadores/doadorEstado}">Doadores por estado</a></li>
+				<li role="presentation"><a href="doador_uf.html" th:href="@{/ui-doadores/estados}">Total de Doadores por estado</a></li>
+			</ul>
+			<table class="table table-bordered table-striped top" style="margin-top: 10px;">
+				<thead>
+					<tr>
+						<td>CPF</td>
+						<td>Nome</td>
+						<td>Tipo Sanguíneo</td>
+					</tr>
+				</thead>
+				<tbody th:each="doadorEstado : ${doadoresEstado}">
+					<tr>
+						<td colspan="3" style="text-align: right; font-weight: bold;">Estado: <span style="font-weight: bold; color: Red; margin-left: 5px;" th:text="${doadorEstado.siglaEstado}"></span></td>
+					</tr>
+					<tr th:each="doadorUF : ${doadorEstado.doadoresJsonCollection}">
+						<td th:text="${doadorUF.cpf}"></td>
+						<td th:text="${doadorUF.nome}"></td>
+						<td th:text="${doadorUF.tipoSanguineo}"></td>
+					</tr>
+					<tr>
+						<td colspan="3" style="text-align: right; font-weight: bold;">Total no estado: <span style="font-weight: bold; color: Red; margin-left: 5px;" th:text="${doadorEstado.totalNoEstado}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

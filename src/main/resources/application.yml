@@ -1,0 +1,23 @@
+spring:
+  
+  datasource:
+    password: ${PASSWORD}
+    url: ${URL}
+    username: ${USERNAME}
+  jpa:
+    database: postgresql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        
+        
+#docker run --name   \
+#-e POSTGRES_USER=doadoresdb \
+#-e POSTGRES_PASSWORD=doadoresdb \
+#-e POSTGRES_DB=doadoresdb \
+#-p 5432:5432 \
+#-v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
+#-d postgres:9.6.19

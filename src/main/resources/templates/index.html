@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+	<title>Citel - Avaliação</title>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS --> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div layout:fragment="content" class="container">	
+		<h1>
+			Citel <small>Doadores</small>
+		</h1>
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="nav nav-pills">			
+						<li role="presentation" class="active"><a href="index.html" th:href="@{/ui-doadores/all}">Doadores</a></li>
+						<li role="presentation"><a href="doador_uf_list.html" th:href="@{/ui-doadores/doadorEstado}">Doadores por estado</a></li>
+						<li role="presentation"><a href="doador_uf.html" th:href="@{/ui-doadores/estados}">Total de Doadores por estado</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="list-group" id="list-tab-complemento" role="tablist">
+				      <a class="list-group-item list-group-item-action" onclick="openInfoComplementar(this.id);" id="list-imc-list" data-toggle="list" href="#list-imc" role="tab" aria-controls="imc">IMC Médio Doadores</a>
+				      <a class="list-group-item list-group-item-action" onclick="openInfoComplementar(this.id);" id="list-genero-list" data-toggle="list" href="#list-genero" role="tab" aria-controls="genero">Obesos por gênero</a>
+				      <a class="list-group-item list-group-item-action" onclick="openInfoComplementar(this.id);" id="list-media-list" data-toggle="list" href="#list-media	" role="tab" aria-controls="media">Idade média por tipo sanguíneo</a>
+				    </div>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped top" style="margin-top: 10px;">
+				<thead>
+					<tr>
+						<td colspan="3" align="right">Total de doadores:<span style="margin-left: 10px;" th:text="${doadores.size()}"></span></td>
+					</tr>
+					<tr>
+						<td>CPF</td>
+						<td>Nome</td>
+						<td>Tipo Sanguíneo</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="doador : ${doadores}">
+						<td th:text="${doador.cpf}"></td>
+						<td th:text="${doador.nome}"></td>
+						<td th:text="${doador.doadoresTipoSanguineo.tipo_sanguineo}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="modalComplemento" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title" id="modalTitle"></h3>
+					</div>
+					<div class="modal-body" id="body-content"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							onclick="closeModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="/index.js?2"></script>
+	<!-- <script>
+		/* $(document).ready(function(){
+			getEstadoProfileRest();
+		}); */
+	</script> -->
+</body>
+</html>
