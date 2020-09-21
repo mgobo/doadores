@@ -45,14 +45,14 @@ docker run --name doadores-app --network citel \
 </ul>
 
 ## Registre as variáveis de ambiente:
+
 <ul>
     <li>URL         = jdbc:postgresql://localhost:5432/doadores</li>
     <li>USERNAME    = doadoresdb</li>
     <li>PASSWORD    = doadoresdb</li>
     <li>ENVIRONMENT = PRD</li>
+    <li>Copie o arquivo data.json para o diretório "/opt/workspace/"</li>
+    <li>Execute o arquivo doadores.jar</li>
 </ul>
-
-Copie o arquivo data.json para o diretório "/opt/workspace/";
-Execute o arquivo doadores.jar
 
 ## PARA AMBOS AMBIENTES, O CONTEXT-ROOT DA APLICACAO é: http://localhost:<<SUA_PORTA>>/ui-doadores/all
