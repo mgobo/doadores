@@ -1,0 +1,24 @@
+version: '3.7'
+services: 
+  postgresql:
+    container_name: postgresql
+    image: postgres:9.6.19
+    environment:
+      POSTGRES_USER: doadoresdb
+      POSTGRES_PASSWORD: doadoresdb 
+      POSTGRES_DB: doadores 
+    ports: 
+      - "5432:5432"
+    volumes: 
+      - /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data 
+  doadores-app:
+    container_name: doadores-app
+    image: mgobo/doadores:latest
+    environment:
+      URL: jdbc:postgresql://localhost:5432/doadores 
+      USERNAME: doadoresdb 
+      PASSWORD: doadoresdb 
+    ports: 
+      - "8081:8080"
+    depends_on: 
+      - postgresql
