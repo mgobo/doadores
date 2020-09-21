@@ -35,6 +35,7 @@ docker run --name doadores-app --network citel \
 -v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
 -d mgobo/doadores:latest
 
+# O ARQUIIVO "docker-run.sh" presente no diretório "src/main/docker", cria a network, executa o container do postgres e também executa o container da aplicação (doadores-app);
 
 ## Executando standalone:
 

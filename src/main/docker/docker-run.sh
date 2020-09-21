@@ -21,4 +21,4 @@ docker run --name doadores-app --network citel \
 -e ENVIRONMENT=PRD \
 -p 8082:8080 \
 -v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
--it mgobo/doadores:latest
+-d mgobo/doadores:latest
