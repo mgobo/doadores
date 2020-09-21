@@ -1,7 +1,7 @@
 function getEstadoProfileRest(){
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/doador/estado/profile',
+        url: 'http://localhost:'+window.location.port+'/doador/estado/profile',
         dataType: 'json',
         crossDomain: true
     }).done(function (data) {
@@ -49,7 +49,7 @@ function restAjaxJQueryIMC(path) {
     document.getElementById('body-content').innerHTML = "Aguarde...";
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/doador/imc/faixa',
+        url: 'http://localhost:'+window.location.port+'/doador/imc/faixa',
         dataType: 'json',
         crossDomain: true
     }).done(function (data) {
@@ -77,7 +77,7 @@ function restAjaxJQueryGenero(path) {
     document.getElementById('body-content').innerHTML = "Aguarde...";
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/doador/obesos/genero',
+        url: 'http://localhost:'+window.location.port+'/doador/obesos/genero',
         dataType: 'json',
         crossDomain: true
     }).done(function (data) {
@@ -112,7 +112,7 @@ function restAjaxJQueryTipoSangue() {
     document.getElementById('body-content').innerHTML = "Aguarde...";
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/doador/media/idade/sangue',
+        url: 'http://localhost:'+window.location.port+'/doador/media/idade/sangue',
         dataType: 'json',
         crossDomain: true
     }).done(function (data) {

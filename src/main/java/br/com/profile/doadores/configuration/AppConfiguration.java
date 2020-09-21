@@ -67,7 +67,12 @@ public class AppConfiguration {
 			this.estadoDaoImpl.deleteAll();
 			this.doadoresDaoImpl.deleteAll();
 			
-			File file = ResourceUtils.getFile("src/main/resources/data.json");
+			File file = null;
+			if(System.getenv("ENVIRONMENT").equals("HML")) {
+				file = ResourceUtils.getFile("src/main/resources/data.json");
+			} else {
+				file = new File("/opt/workspace/data.json");
+			}
 			try(FileReader fr = new FileReader(file)){
 				JsonReader reader 	= Json.createReader(fr);
 				JsonArray jsonArray = reader.readArray();
