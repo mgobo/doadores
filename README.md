@@ -9,7 +9,7 @@ Aplicação Roda em Container ou **_Standalone_**
 
 <ol>
 <li><b>Execute o POSTGRES SQL em container <i>Script 1:</i></b></li>
-<li><b>Execute o CONTAINER Público "DOADORES"<i>Script 2:</i></b></li>
+<li><b>Execute o CONTAINER Público "DOADORES" <i>Script 2:</i></b></li>
 </ol>
 
 ## Script 1:
@@ -33,7 +33,7 @@ docker run --name doadores-app --network citel \
 -e ENVIRONMENT=PRD \
 -p 8082:8080 \
 -v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
--it mgobo/doadores:latest
+-d mgobo/doadores:latest
 
 
 ## Executando standalone:
