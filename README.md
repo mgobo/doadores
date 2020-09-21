@@ -38,15 +38,19 @@ docker run --name doadores-app --network citel \
 
 ## Executando standalone:
 
->> Configure previamente o PostgresSQL na máquina;
-Crie o banco de dados: doadores
-Crie o usuário e senha: doadoresdb / doadoresdb
+<ul>
+    <li>Configure previamente o PostgresSQL na máquina;</li>
+    <li>Crie o banco de dados: doadores</li>
+    <li>Crie o usuário e senha: doadoresdb / doadoresdb</li>
+</ul>
 
-Registre as variáveis de ambiente:
-URL         = jdbc:postgresql://localhost:5432/doadores
-USERNAME    = doadoresdb
-PASSWORD    = doadoresdb
-ENVIRONMENT = PRD
+## Registre as variáveis de ambiente:
+<ul>
+    <li>URL         = jdbc:postgresql://localhost:5432/doadores</li>
+    <li>USERNAME    = doadoresdb</li>
+    <li>PASSWORD    = doadoresdb</li>
+    <li>ENVIRONMENT = PRD</li>
+</ul>
 
 Copie o arquivo data.json para o diretório "/opt/workspace/";
 Execute o arquivo doadores.jar
