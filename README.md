@@ -14,10 +14,10 @@ Aplicação Roda em Container ou **_Standalone_**
 
 ## Script 1:
 
-> Create a network:
+## Script to Create a network:
     docker network create citel \
 
-> Running a postgres container:
+## Script to Running a postgres container:
     docker run --name postgres-doadores --network citel \
     -e POSTGRES_USER=doadoresdb \
     -e POSTGRES_PASSWORD=doadoresdb \
