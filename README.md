@@ -13,7 +13,7 @@ Aplicação Roda em Container ou **_Standalone_**.
 ## Script 1:
 
 ## Script to Create a network:
-    docker network create citel \
+    docker network create citel 
 
 ## Script to Running a postgres container:
     docker run --name postgres-doadores --network citel \
