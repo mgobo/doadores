@@ -26,14 +26,14 @@ docker run --name postgres-doadores --network citel \
 -d postgres:9.6.19
 
 ## Script 2:
-docker run --name doadores-app --network citel \
--e URL=jdbc:postgresql://postgres-doadores:5432/doadores \
--e USERNAME=doadoresdb \
--e PASSWORD=doadoresdb \
--e ENVIRONMENT=PRD \
--p 8082:8080 \
--v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
--d mgobo/doadores:latest
+    docker run --name doadores-app --network citel \
+    -e URL=jdbc:postgresql://postgres-doadores:5432/doadores \
+    -e USERNAME=doadoresdb \
+    -e PASSWORD=doadoresdb \
+    -e ENVIRONMENT=PRD \
+    -p 8082:8080 \
+    -v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
+    -d mgobo/doadores:latest
 
 **_O ARQUIVO "docker-run.sh" presente no diretório "src/main/docker", cria a network, executa o container do postgres e também executa o container da aplicação (doadores-app)_**
 
