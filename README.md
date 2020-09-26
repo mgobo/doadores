@@ -1,8 +1,6 @@
-# doadores
-
 # Aplicação Doadores
-> Responsável por devolver doadores de sangue.
-Aplicação Roda em Container ou **_Standalone_**
+Responsável por devolver doadores de sangue.
+Aplicação Roda em Container ou **_Standalone_**.
 
 # Requisitos
 ## Executando em container:
