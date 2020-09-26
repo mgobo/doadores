@@ -14,16 +14,16 @@ Aplicação Roda em Container ou **_Standalone_**
 
 ## Script 1:
 #NETWORK
-docker network create citel \
+    docker network create citel \
 
 #POSTGRES
-docker run --name postgres-doadores --network citel \
--e POSTGRES_USER=doadoresdb \
--e POSTGRES_PASSWORD=doadoresdb \
--e POSTGRES_DB=doadores \
--p 5432:5432 \
--v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
--d postgres:9.6.19
+    docker run --name postgres-doadores --network citel \
+    -e POSTGRES_USER=doadoresdb \
+    -e POSTGRES_PASSWORD=doadoresdb \
+    -e POSTGRES_DB=doadores \
+    -p 5432:5432 \
+    -v /usr/local/opt/dockerdata/pgsql-doadores:/var/lib/postgresql/data \
+    -d postgres:9.6.19
 
 ## Script 2:
     docker run --name doadores-app --network citel \
